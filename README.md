@@ -1,3 +1,18 @@
+# 修改
+> 原库已不维护
+
+## 文档   
+`download(data, ?strFileName, ?strMimeType, ?dataType)`  
+* data 必须 可以是文件路径、字符串、Blob、dataURL 
+* strFileName 可选 指定下载文件的文件名
+* strMimeType 可选 指定下载文件的类型
+* dataType 可选 data类型，我们不期望你明确指示data的类型，但因data类型的多样性，尤其是当出现一些意外的情况，这个选项可以帮你规避，可用值为`['path', 'blob', 'dataUrl', 'string']`    
+
+## 使用示例 
+`download(data, dataType)`  
+`download(data, strFileName)`  
+`download(data, strFileName, strMimeType)`  
+
 # download 
 
 [![NPM version][npm-image]][npm-url] 

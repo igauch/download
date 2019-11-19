@@ -1,6 +1,6 @@
 {
   "name": "downloadjs",
-  "main": "download.js",
+  "main": "dist/main.js",
   "version": "1.4.8",
   "description": "file downloading using client-side javascript",
   "keywords": [
@@ -27,6 +27,9 @@
     "download.js",
     "download.min.js"
   ],
+  "scripts": {
+    "build": "webpack"
+  },
   "npmName": "downloadjs",
   "npmFileMap": [
     {
@@ -35,5 +38,9 @@
         "*.js"
       ]
     }
-  ]
+  ],
+  "devDependencies": {
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10"
+  }
 }
