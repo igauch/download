@@ -1,6 +1,6 @@
 {
-  "name": "downloadjs",
-  "main": "dist/main.js",
+  "name": "downloadjs_gauch",
+  "main": "dist/download.min.js",
   "version": "2.0.0",
   "description": "file downloading using client-side javascript",
   "keywords": [
@@ -18,7 +18,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/rndme/download.git"
+    "url": "https://github.com/igauch/download.git"
   },
   "bugs": {
     "email": "rndme@users.noreply.github.com"
@@ -30,7 +30,7 @@
   "scripts": {
     "build": "webpack"
   },
-  "npmName": "downloadjs",
+  "npmName": "downloadjs_gauch",
   "npmFileMap": [
     {
       "basePath": "/",
