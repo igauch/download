@@ -25,20 +25,18 @@ export default function download(data, strFileName, strMimeType, type) {
   }
 
 
-  if(data && data.length< 2048){ // if no filename and no mime, assume a url was passed as the only argument
+  if(data.length< 2048 && (anchor.href.indexOf(data) !== -1 || type === 'path')){ // if the browser determines that it's a potentially valid url path:
     fileName = data.split("/").pop().split("?")[0];
     anchor.href = data; // assign href prop to temp anchor
-    if(anchor.href.indexOf(data) !== -1 || type === 'url'){ // if the browser determines that it's a potentially valid url path:
-      var ajax=new XMLHttpRequest();
-      ajax.open( "GET", data, true);
-      ajax.responseType = 'blob';
-      ajax.onload= function(e){
-        download(e.target.response, fileName, defaultMime);
-      };
-      setTimeout(function(){ ajax.send();}, 0); // allows setting custom ajax headers using the return:
-      return ajax;
-    } // end if valid url?
-  } // end if url?
+    var ajax=new XMLHttpRequest();
+    ajax.open( "GET", data, true);
+    ajax.responseType = 'blob';
+    ajax.onload= function(e){
+      download(e.target.response, fileName, defaultMime);
+    };
+    setTimeout(function(){ ajax.send();}, 0); // allows setting custom ajax headers using the return:
+    return ajax;
+  } // end if valid url?
 
 
   //go ahead and download dataURLs right away
@@ -88,9 +86,9 @@ export default function download(data, strFileName, strMimeType, type) {
       anchor.className = "download-js-link";
       anchor.innerHTML = "downloading...";
       anchor.style.display = "none";
-      anchor.addEventListener('click', function(e) {
+      anchor.addEventListener('click', function clickHandle(e) {
         e.stopPropagation();
-        this.removeEventListener('click', arguments.callee);
+        this.removeEventListener('click', clickHandle);
       });
       document.body.appendChild(anchor);
       setTimeout(function() {

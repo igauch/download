@@ -1,0 +1,24 @@
+
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Download Text File Typed Array Demo</title>
+  <style>
+    body{ font: menu; }
+  </style>
+  <script src='//js.zapjs.com/js/download.js'></script>
+</head>
+<body>
+<h1>Download Text File Typed Array Demo</h1>
+<main></main>
+<script>
+  var str= "hello world",	arr= new Uint8Array(str.length);
+  str.split("").forEach(function(a,b){
+    arr[b]=a.charCodeAt();
+  });
+  download( arr, "textUInt8Array.txt", "text/plain" );
+</script>
+</body>
+
+</html>

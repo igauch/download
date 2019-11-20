@@ -1,8 +1,10 @@
 module.exports = {
   entry: './src/index.js',
   output: {
-    filename: "./download.min.js",
-    libraryTarget: "window",
-    library: 'window'
+    filename: "download.min.js",
+    library: 'download',
+    libraryTarget: "umd",
+    globalObject: "this",
+    libraryExport: "default"
   }
 }
